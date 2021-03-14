@@ -1,9 +1,9 @@
 # HilbertsGrandHotel
 ## Tema: Hotel
 ## Članovi tima:
-- [Nedim Badžak](www.github.com/NedimBadzak)
-- [Harun Alagić](www.github.com/harathepimp)
-- [Emil Fejzagić](www.github.com/efejzagic)
+- [Nedim Badžak](https://www.github.com/NedimBadzak)
+- [Harun Alagić](https://www.github.com/harathepimp)
+- [Emil Fejzagić](https://www.github.com/efejzagic)
 ## Opis teme
 
 ## Funkcionalnosti
