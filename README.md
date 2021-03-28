@@ -37,16 +37,16 @@ Riječ je o pristupačnoj, funkcionalnoj i jedinstvenoj aplikacija "Hilbert's Gr
 - Pregled zauzetosti soba
 - Rezervacija soba
 - Finalizacija i validacija rezervacija
-- Zakljucivanje i obračun boravka
+- Zaključivanje i obračun boravka
 - Izrada faktura
 - Naplata i obračun eventualnih popusta
 - Odjava rezervacije
 ----------------------------------------
 ### Šef smjene
-- Odrzavanje sistema
+- Održavanje sistema
 - Login
 - Evidencija rada osoblja 
-- Uredjivanje rezervacija 
+- Uređivanje rezervacija 
 - Upravljanje eventovima 
 - Pregled trenutnih gostiju 
 - Uvid u uplate 
