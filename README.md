@@ -18,19 +18,13 @@ Riječ je o pristupačnoj, funkcionalnoj i jedinstvenoj aplikacija "Hilbert's Gr
 - Kontakt forma
 - Pregled dostupnih soba
 - Rezervacija soba
-- Rezervacija parking mjesta
-- Rezervacija sala za konferencije
-- Rezervacija rekreativnih aktivnosti
 - Ostvarivanje dodatnog popusta
-- Razni programi za ljetovanje 
-- Dodatne pogodnosti hotela (spa, wellness, teretana itd) 
 - Plaćanje karticom ili gotovinom te iskorištavanje kupona pri plaćanju
 - Mogućnost otkazivanja
 - Validacija rezervacije
 - Pregled trenutnog stanja sobe
 - Pregled historije rezervacija
 - Mogućnost ocjenjivanja usluge, davanja ocjene te komentara
-- Mogućnost dodavanja korisničkih slika u galeriju hotela
 ---------------------------------
 ### Recepcioner
 - Uvid u trenutne goste
@@ -47,7 +41,6 @@ Riječ je o pristupačnoj, funkcionalnoj i jedinstvenoj aplikacija "Hilbert's Gr
 - Login
 - Evidencija rada osoblja 
 - Uređivanje rezervacija 
-- Upravljanje eventovima 
 - Pregled trenutnih gostiju 
 - Uvid u uplate 
 - Upravljanje zaposlenicima
