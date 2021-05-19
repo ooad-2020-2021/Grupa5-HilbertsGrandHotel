@@ -9,7 +9,7 @@ namespace ProjekatPrvaApp.Models
     public class Recepcioner : Osoblje
     {
         [NotMapped]
-        List<Soba> sveSobe { get; set; }
+        String sveSobe { get; set; }
         public Recepcioner(int ID, string ime, string prezime, string email, string adresaStanovanja, string brojTelefona) : base(ID, ime, prezime, email, adresaStanovanja, brojTelefona)
         {
         }
