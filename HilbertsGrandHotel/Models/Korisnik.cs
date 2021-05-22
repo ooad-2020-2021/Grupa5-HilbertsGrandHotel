@@ -8,16 +8,20 @@ namespace ProjekatPrvaApp.Models
 {
     public class Korisnik
     {
-        [Required]
         [Key]
-        int ID;
         [Required]
-        string ime { get; set; }
+        public int ID { get; set; }
         [Required]
-        string prezime { get; set; }
+        public string ime { get; set; }
         [Required]
-        string email { get; set; }
+        public string prezime { get; set; }
+        [Required]
+        public string email { get; set; }
 
+        public Korisnik()
+        {
+
+        }
         public Korisnik(int ID, string ime, string prezime, string email)
         {
             this.ID = ID;

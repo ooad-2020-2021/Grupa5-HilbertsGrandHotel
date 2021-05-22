@@ -10,18 +10,22 @@ namespace ProjekatPrvaApp.Models
     {
         [Key]
         [Required]
-        int ID { get; set; }
-        StanjeSobe stanjeSobe { get; set; }
+        public int ID { get; set; }
+        public StanjeSobe stanjeSobe { get; set; }
         [Required]
-        bool zauzetostSobe { get; set; }
+        public bool zauzetostSobe { get; set; }
         [Required]
-        int brojGostiju { get; set; }
+        public int brojGostiju { get; set; }
         [Required]
-        int brojKreveta { get; set; }
+        public int brojKreveta { get; set; }
         [Required]
-        double cijena { get; set; }
-        [Required]
-        Korisnik korisnik { get; set; }
+        public double cijena { get; set; }
+
+        public Korisnik korisnik { get; set; }
+
+        public Soba() { }
+
+       
 
         public Soba(int ID, StanjeSobe stanjeSobe, bool zauzetostSobe, int brojGostiju, int brojKreveta, double cijena, Korisnik korisnik)
         {
