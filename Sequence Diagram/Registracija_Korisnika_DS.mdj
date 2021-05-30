@@ -359,9 +359,9 @@
 												"$ref": "AAAAAAF5k9eRiqpSFLg="
 											},
 											"font": "Arial;13;0",
-											"left": 578,
+											"left": 536,
 											"top": 136,
-											"width": 138.75341796875,
+											"width": 222.54248046875,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 10,
@@ -369,7 +369,7 @@
 												"$ref": "AAAAAAF5k9eRiqpTDuU="
 											},
 											"edgePosition": 1,
-											"text": "1 : Unos ličnih podataka"
+											"text": "1 : unosPodataka(ime, prezime, email)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -470,17 +470,17 @@
 												"$ref": "AAAAAAF5k9hPLKpoDCI="
 											},
 											"font": "Arial;13;0",
-											"left": 592,
+											"left": 528,
 											"top": 191,
-											"width": 193.68603515625,
+											"width": 251.42431640625,
 											"height": 13,
-											"alpha": -1.6013221960407946,
-											"distance": 131.06105447462264,
+											"alpha": -1.5948890516705652,
+											"distance": 166.04818577750254,
 											"hostEdge": {
 												"$ref": "AAAAAAF5k9hPLapp9D4="
 											},
 											"edgePosition": 1,
-											"text": "2 : Verifikacija unesenih podataka"
+											"text": "2 : Verifikacija podataka"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -750,7 +750,7 @@
 												"$ref": "AAAAAAF5k+sFr6u5JK4="
 											},
 											"edgePosition": 1,
-											"text": "3 : Slika ličnog dokumenta"
+											"text": "3 : uploadSlike(slika)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -851,9 +851,9 @@
 												"$ref": "AAAAAAF5k+qXeauh6So="
 											},
 											"font": "Arial;13;0",
-											"left": 583,
+											"left": 556,
 											"top": 296,
-											"width": 129.34619140625,
+											"width": 182.7998046875,
 											"height": 13,
 											"alpha": 1.5707963267948966,
 											"distance": 10,
@@ -962,17 +962,17 @@
 												"$ref": "AAAAAAF5k+uYX6vUOg8="
 											},
 											"font": "Arial;13;0",
-											"left": 655,
-											"top": 354,
-											"width": 118.52978515625,
+											"left": 624,
+											"top": 353,
+											"width": 129.365234375,
 											"height": 13,
-											"alpha": -1.5803208492954568,
-											"distance": 105.00476179678711,
+											"alpha": -1.5860633175068382,
+											"distance": 131.01526628603247,
 											"hostEdge": {
 												"$ref": "AAAAAAF5k+uYYKvVPek="
 											},
 											"edgePosition": 1,
-											"text": "5 : Obrada podataka"
+											"text": "5 : obradaPodataka"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1073,9 +1073,9 @@
 												"$ref": "AAAAAAF5k+Ye5atzVXI="
 											},
 											"font": "Arial;13;0",
-											"left": 559,
+											"left": 542,
 											"top": 447,
-											"width": 158.24072265625,
+											"width": 192.1689453125,
 											"height": 13,
 											"alpha": -0.8441542964580844,
 											"distance": 24.08318915758459,
@@ -1194,7 +1194,7 @@
 												"$ref": "AAAAAAF5k+wRs6vvYBo="
 											},
 											"edgePosition": 1,
-											"text": "7 : Ponovni unos neispravnih podataka"
+											"text": "7 : ponoviUnosPodataka"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1285,13 +1285,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5k89uwajye4A="
 							},
-							"name": "Unos ličnih podataka",
+							"name": "unosPodataka",
 							"source": {
 								"$ref": "AAAAAAF5k8/s8akEMpk="
 							},
 							"target": {
 								"$ref": "AAAAAAF5k9Ckhqkkvlw="
-							}
+							},
+							"arguments": "ime, prezime, email"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1299,7 +1300,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF5k89uwajye4A="
 							},
-							"name": "Verifikacija unesenih podataka",
+							"name": "Verifikacija podataka",
 							"source": {
 								"$ref": "AAAAAAF5k9Ckhqkkvlw="
 							},
@@ -1314,13 +1315,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5k89uwajye4A="
 							},
-							"name": "Slika ličnog dokumenta",
+							"name": "uploadSlike",
 							"source": {
 								"$ref": "AAAAAAF5k8/s8akEMpk="
 							},
 							"target": {
 								"$ref": "AAAAAAF5k9Ckhqkkvlw="
-							}
+							},
+							"arguments": "slika"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1342,7 +1344,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF5k89uwajye4A="
 							},
-							"name": "Obrada podataka",
+							"name": "obradaPodataka",
 							"source": {
 								"$ref": "AAAAAAF5k9Ckhqkkvlw="
 							},
@@ -1371,7 +1373,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF5k89uwajye4A="
 							},
-							"name": "Ponovni unos neispravnih podataka",
+							"name": "ponoviUnosPodataka",
 							"source": {
 								"$ref": "AAAAAAF5k8/s8akEMpk="
 							},
