@@ -472,17 +472,17 @@
 												"$ref": "AAAAAAF5lV/mNPAdRfw="
 											},
 											"font": "Arial;13;0",
-											"left": 167,
+											"left": 143,
 											"top": 107,
 											"width": 276.73876953125,
 											"height": 13,
-											"alpha": 1.5777882193112325,
-											"distance": 143.0034964607509,
+											"alpha": 1.5791984896364288,
+											"distance": 119.00420160649792,
 											"hostEdge": {
 												"$ref": "AAAAAAF5lV/mNfAe1CA="
 											},
 											"edgePosition": 1,
-											"text": "1 : Korisnik bira opciju otkazivanja rezervacije"
+											"text": "1 : otkazivanjeRezervacije(resID)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -704,7 +704,7 @@
 												"$ref": "AAAAAAF5lWK/pvBWgjI="
 											},
 											"edgePosition": 1,
-											"text": "3 : Zahtjev se dodaje u bazu i listu zahtjeva na cekanju"
+											"text": "3 : dodajZahtjev(tipZahtjeva, zahtjev)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -815,7 +815,7 @@
 												"$ref": "AAAAAAF5lW0HUvCyFGc="
 											},
 											"edgePosition": 1,
-											"text": "4 : Revizija zahtjeva"
+											"text": "4 : dajZahtjeve(_)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1061,7 +1061,7 @@
 												"$ref": "AAAAAAF5lXA7cfEr+SY="
 											},
 											"edgePosition": 1,
-											"text": "5 : Ispisuje se potvrda o kraju rezervacije i faktura za boravak"
+											"text": "5 : generisanjeFakture(korisnik)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1162,17 +1162,17 @@
 												"$ref": "AAAAAAF5lXCzrPFCjsk="
 											},
 											"font": "Arial;13;0",
-											"left": 631,
+											"left": 535,
 											"top": 480,
 											"width": 382.21142578125,
 											"height": 13,
-											"alpha": 1.590400656691302,
-											"distance": 204.0392119177096,
+											"alpha": 1.6078154392441695,
+											"distance": 108.07404868885037,
 											"hostEdge": {
 												"$ref": "AAAAAAF5lXCzrPFDe30="
 											},
 											"edgePosition": 1,
-											"text": "6 : Rezervacija se briše iz aktivnih i prelazi u arhivirane rezervacije"
+											"text": "6 : arhivirajRezervaciju(resID)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1283,7 +1283,7 @@
 												"$ref": "AAAAAAF5lW+a9fEU4u8="
 											},
 											"edgePosition": 1,
-											"text": "7 : Šalje se notifikacija ili email korisniku zašto je odbijen zahtjev"
+											"text": "7 : obavijestiOdbijanje(razlog, korisnik)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1374,13 +1374,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5lVdicu6cIhw="
 							},
-							"name": "Korisnik bira opciju otkazivanja rezervacije",
+							"name": "otkazivanjeRezervacije",
 							"source": {
 								"$ref": "AAAAAAF5lVqW7O7dP9w="
 							},
 							"target": {
 								"$ref": "AAAAAAF5lVqW7O7dP9w="
-							}
+							},
+							"arguments": "resID"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1402,13 +1403,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5lVdicu6cIhw="
 							},
-							"name": "Zahtjev se dodaje u bazu i listu zahtjeva na cekanju",
+							"name": "dodajZahtjev",
 							"source": {
 								"$ref": "AAAAAAF5lVqW7O7dP9w="
 							},
 							"target": {
 								"$ref": "AAAAAAF5lVxyou+877c="
-							}
+							},
+							"arguments": "tipZahtjeva, zahtjev"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1416,13 +1418,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5lVdicu6cIhw="
 							},
-							"name": "Revizija zahtjeva",
+							"name": "dajZahtjeve",
 							"source": {
 								"$ref": "AAAAAAF5lVxyou+877c="
 							},
 							"target": {
 								"$ref": "AAAAAAF5lVxLku+cg6s="
-							}
+							},
+							"arguments": "_"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1430,13 +1433,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5lVdicu6cIhw="
 							},
-							"name": "Ispisuje se potvrda o kraju rezervacije i faktura za boravak",
+							"name": "generisanjeFakture",
 							"source": {
 								"$ref": "AAAAAAF5lVxLku+cg6s="
 							},
 							"target": {
 								"$ref": "AAAAAAF5lVxyou+877c="
-							}
+							},
+							"arguments": "korisnik"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1444,13 +1448,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5lVdicu6cIhw="
 							},
-							"name": "Rezervacija se briše iz aktivnih i prelazi u arhivirane rezervacije",
+							"name": "arhivirajRezervaciju",
 							"source": {
 								"$ref": "AAAAAAF5lVxyou+877c="
 							},
 							"target": {
 								"$ref": "AAAAAAF5lVxyou+877c="
-							}
+							},
+							"arguments": "resID"
 						},
 						{
 							"_type": "UMLMessage",
@@ -1458,13 +1463,14 @@
 							"_parent": {
 								"$ref": "AAAAAAF5lVdicu6cIhw="
 							},
-							"name": "Šalje se notifikacija ili email korisniku zašto je odbijen zahtjev",
+							"name": "obavijestiOdbijanje",
 							"source": {
 								"$ref": "AAAAAAF5lVxLku+cg6s="
 							},
 							"target": {
 								"$ref": "AAAAAAF5lVxyou+877c="
-							}
+							},
+							"arguments": "razlog, korisnik"
 						}
 					],
 					"participants": [
