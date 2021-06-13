@@ -1,0 +1,44 @@
+﻿@model HilbertsGrandHotel_KP.Models.Uplata
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Uplata</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="vrstaUplate" class="control-label"></label>
+                <select asp-for="vrstaUplate" class="form-control"></select>
+                <span asp-validation-for="vrstaUplate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="datum" class="control-label"></label>
+                <input asp-for="datum" class="form-control" />
+                <span asp-validation-for="datum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iznos" class="control-label"></label>
+                <input asp-for="iznos" class="form-control" />
+                <span asp-validation-for="iznos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model HilbertsGrandHotel_KP.Models.Soba
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Soba</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="stanjeSobe" class="control-label"></label>
+                <input asp-for="stanjeSobe" class="form-control" />
+                <span asp-validation-for="stanjeSobe" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label asp-for="zauzetostSobe" class="control-label"></label>
+                <input asp-for="zauzetostSobe" class="form-control" type="text" />
+                <span asp-validation-for="zauzetostSobe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="brojGostiju" class="control-label"></label>
+                <input asp-for="brojGostiju" class="form-control" />
+                <span asp-validation-for="brojGostiju" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="brojKreveta" class="control-label"></label>
+                <input asp-for="brojKreveta" class="form-control" />
+                <span asp-validation-for="brojKreveta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cijena" class="control-label"></label>
+                <input asp-for="cijena" class="form-control" />
+                <span asp-validation-for="cijena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

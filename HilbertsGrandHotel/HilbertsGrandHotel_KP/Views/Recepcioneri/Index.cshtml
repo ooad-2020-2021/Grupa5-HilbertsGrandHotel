@@ -1,0 +1,365 @@
+﻿@model IEnumerable<HilbertsGrandHotel_KP.Models.Recepcioner>
+@{
+    ViewData["Title"] = "Index";
+    
+}
+@{
+    var sobe = (List<HilbertsGrandHotel_KP.Models.Soba>)ViewData["sobe"]; // Cast the list
+}
+<style>
+
+    body {
+        /*        margin-top: 20px;
+    */ color: #1a202c;
+        text-align: left;
+        background-color: #e2e8f0;
+    }
+
+    .main-body {
+        padding: 15px;
+    }
+
+    .card {
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1rem;
+    }
+
+    .gutters-sm {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+
+        .gutters-sm > .col, .gutters-sm > [class*=col-] {
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+    .mb-3, .my-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .bg-gray-300 {
+        background-color: #e2e8f0;
+    }
+
+    .h-100 {
+        height: 100% !important;
+    }
+
+    .shadow-none {
+        box-shadow: none !important;
+    }
+
+    .leaderboard {
+        max-width: 490px;
+        /*width: 100%;*/
+        border-radius: 12px;
+    }
+
+        .leaderboard header {
+            --start: 15%;
+            height: 130px;
+            background-image: repeating-radial-gradient(circle at var(--start), transparent 0%, transparent 10%, rgba(54, 89, 219, .33) 10%, rgba(54, 89, 219, .33) 17%), linear-gradient(to right, #5b7cfa, #3659db);
+            color: #fff;
+            position: relative;
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+        }
+
+            .leaderboard header .leaderboard__title {
+                position: absolute;
+                z-index: 2;
+                top: 50%;
+                right: calc(var(--start) * .75);
+                transform: translateY(-50%);
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+                .leaderboard header .leaderboard__title span {
+                    display: block;
+                }
+
+            .leaderboard header .leaderboard__title--top {
+                font-size: 24px;
+                font-weight: 700;
+                letter-spacing: 6.5px;
+            }
+
+            .leaderboard header .leaderboard__title--bottom {
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 3.55px;
+                opacity: 0.65;
+                transform: translateY(-2px);
+            }
+
+            .leaderboard header .leaderboard__icon {
+                fill: #fff;
+                opacity: 0.35;
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                left: var(--start);
+                transform: translate(-50%, -50%);
+            }
+
+    .leaderboard__profiles {
+        background-color: #fff;
+        border-radius: 0 0 12px 12px;
+        padding: 15px 15px 20px;
+        display: grid;
+        /*row-gap: 8px; */
+    }
+
+    .leaderboard__profile {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        align-items: center;
+        padding: 10px 30px 10px 10px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+        background-color: #fff;
+    }
+
+        .leaderboard__profile:hover {
+            transform: scale(1.2);
+            box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
+        }
+
+    .leaderboard__picture {
+        max-width: 100%;
+        width: 60px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
+    }
+
+    .leaderboard__name {
+        color: #979cb0;
+        font-weight: 600;
+        font-size: 20px;
+        letter-spacing: 0.64px;
+        margin-left: 12px;
+    }
+
+    .leaderboard__value {
+        color: #35d8ac;
+        font-weight: 700;
+        font-size: 34px;
+        text-align: right;
+    }
+
+        .leaderboard__value > span {
+            opacity: 0.8;
+            font-weight: 600;
+            font-size: 13px;
+            margin-left: 3px;
+        }
+
+
+
+    .leaderboard {
+        box-shadow: 0 0 40px -10px rgba(0, 0, 0, .4);
+    }
+</style>
+<head>
+    <script type="text/javascript" src="~/js/bootstrap-filestyle.js"></script>
+</head>
+<div class="odvojiOdHeadera">
+    <div class="container">
+        <div class="main-body">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Recepcioner</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Recepcioner Panel</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <div class="gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>John Doe</h4>
+                                    <p class="text-secondary mb-1">Full Stack Developer</p>
+                                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                    <button class="btn btn-primary">Follow</button>
+                                    <button class="btn btn-outline-primary">Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="mt-3 text-center">
+                            <h4 style="margin-top: 10px;">Lista gostiju</h4>
+                        </div>
+                        <div class="comment-add" style="padding: 20px;">
+
+                            <article class="leaderboard" style="max-height:300px; overflow-y:scroll; overflow-x: hidden; max-width:max-content; padding: 10px">
+
+
+                                @for (int i = 0; i < 15; i++)
+                                {
+                                    <a asp-controller="Korisnik" asp-action="Index" asp-route-id="@i">
+                                        <article class="leaderboard__profile">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mark Zuckerberg" class="leaderboard__picture">
+                                            <span class="leaderboard__name">Mark Zuckerberg</span>
+                                            <span class="leaderboard__value">35.7<span>B</span></span>
+                                        </article>
+                                    </a>
+                                }
+
+                            </article>
+                        </div>
+
+                    </div><!--/comment-add-->
+
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Full Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                Kenneth Valdez
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                fip@jukmuh.al
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                (239) 816-9029
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mobile</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                (320) 380-4539
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                Bay Area, San Francisco, CA
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row gutters-sm">
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Rezervacije/</i> Trenutno Stanje Soba</h6>
+                                <ul class="list-group list-group-flush" style="max-height:500px; overflow-y:scroll;">
+                                    @for (int i = 0; i < sobe.Count; i++)
+                                    {
+                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                            <h4 class="mb-0">Soba broj @(i+1)</h4>
+                                            <div style="display: flex">
+                                                <div style="flex: 3">
+                                                    <span class="text-secondary">
+                                                        Zauzeta:
+                                                        @if (sobe[i].zauzetostSobe)@Html.Raw("DA")
+                                                        else @Html.Raw("NE")
+                                                    </span>
+                                                    <h6 class="text-secondary">Broj gostiju: @sobe[i].brojGostiju</h6>
+                                                </div>
+                                                <div style="flex:1">
+                                                    <h6>Od: @sobe[i].datumPrijave</h6>
+                                                    <h6>Do: @sobe[i].datumOdjave</h6>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Zahtjevi/</i>Zahtjevi na cekanju</h6>
+                                <ul class="list-group list-group-flush" style="max-height:500px; overflow-y:scroll;">
+                                    @for (int i = 0; i < 5; i++)
+                                    {
+                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                            <h4 class="mb-0">Zahtjev broj @(i+1)</h4>
+                                            <div style="display: flex">
+                                                <div style="flex: 3">
+                                                    <span class="text-secondary">Uputio: </span>
+                                                    <h6 class="text-secondary">Opis zahtjeva:</h6>
+                                                </div>
+                                                <div style="flex:1">
+                                                    <button class="btn btn-primary" style="width:100%">Prihvati</button>
+                                                    <button class="btn btn-outline-primary" style="width: 100%">Odbij</button>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

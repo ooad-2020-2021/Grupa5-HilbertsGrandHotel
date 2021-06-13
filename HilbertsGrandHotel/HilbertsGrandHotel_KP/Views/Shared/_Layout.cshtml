@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <title>@ViewData["Title"] - HilbertsGrandHotel_KP</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Mobile Web-app fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Meta tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <!--Title-->
+    <title>Colina - Hotel, Resort & Accommodation Website Template</title>
+
+    <!--CSS styles-->
+    <link rel="stylesheet" media="all" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" media="all" href="~/css/animate.css" />
+    <link rel="stylesheet" media="all" href="~/css/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="~/css/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="~/css/hotel-icons.css" />
+    <link rel="stylesheet" media="all" href="~/css/magnific-popup.css" />
+    <link rel="stylesheet" media="all" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="~/css/datepicker.css" />
+    <link rel="stylesheet" media="all" href="~/css/theme.css" />
+    <link rel="stylesheet" media="all" href="~/css/odvojiodheadera.css" />
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+
+</head>
+<body>
+    <!--<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HilbertsGrandHotel_KP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+        -->
+
+    <header>
+
+        <!-- ======================== Navigation ======================== -->
+
+        <div class="container">
+
+            <!-- === navigation-top === -->
+
+            <nav class="navigation-top clearfix">
+
+                <!-- navigation-top-left -->
+
+                <div class="navigation-top-left">
+                    <a class="box" href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="box" href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="box" href="#">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+                </div>
+
+                <!-- navigation-top-right -->
+
+                <div class="navigation-top-right">
+                    <a class="box" href="#">
+                        <i class="icon icon-star"></i>
+                        Special offers
+                    </a>
+                    
+                </div>
+            </nav>
+
+            <!-- === navigation-main === -->
+
+            <nav class="navigation-main clearfix">
+
+                <!-- logo -->
+
+                <div class="logo animated fadeIn">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <img class="logo-desktop" src="~/assets/images/logo.png" alt="Alternate Text" />
+                        <img class="logo-mobile" src="~/assets/images/logo-mobile.png" alt="Alternate Text" />
+                    </a>
+                </div>
+
+                <!-- toggle-menu -->
+
+                <div class="toggle-menu"><i class="icon icon-menu"></i></div>
+
+                <!-- navigation-block -->
+
+                <div class="navigation-block clearfix">
+
+                    <!-- navigation-left -->
+
+                    <ul class="navigation-left">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            
+                        </li>
+                        
+                        <li>
+                            <a href="#">Pages <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                            <ul>
+                                <!--<li><a href="#">About us</a></li>-->
+                                <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                                <li><a asp-area="" asp-controller="Sobe" asp-action="Index1">Rooms category</a></li>
+                                <li><a asp-area="" asp-controller="Sobe" asp-action="Index">Room overview</a></li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Error404">404 Not found</a></li>
+                                <li><a asp-area="" asp-controller="Recenzije" asp-action="Index">Review</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Booking <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                            <ul>
+                                <li><a asp-area="" asp-controller="Rezervacija" asp-action="Index">Booking step 1</a></li>
+                                <li><a href="#">Booking step 2</a></li>
+                                <li><a href="#">Booking step 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- navigation-right -->
+                    <ul class="navigation-right">
+                     
+                        <li>
+                            <a asp-area="" asp-controller="Kontakt" asp-action="Index" >Contact</a>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+
+                </div> <!--/navigation-block-->
+
+            </nav>
+        </div> <!--/container-->
+
+    </header>
+
+
+
+
+   <div class="container" style="width: 100%; min-height:100vh">
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - HilbertsGrandHotel_KP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+    -->
+    <footer>
+        <div class="container">
+
+            <!--footer links-->
+            <div class="footer-links">
+                <div class="row">
+                    <div class="col-sm-6 footer-left">
+                        <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a> | &nbsp; <a href="#">Guest book</a>
+                    </div>
+                    <div class="col-sm-6 footer-right">
+                        <a href="#">Gallery</a> &nbsp; | &nbsp; <a href="#">Reservations</a> | &nbsp; <a href="#">Help center</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--footer social-->
+
+            <div class="footer-social">
+                <div class="row">
+                    <div class="col-sm-12 text-center hidden">
+                        <a href="#" class="footer-logo"><img src="~/assets/images/logo.png" alt="Alternate Text" /></a>
+                    </div>
+                    <div class="col-sm-12 icons">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 copyright">
+                        <small>Copyright &copy; 2021 &nbsp; | &nbsp; <a href="https://github.com/ooad-2020-2021/Grupa5-HilbertsGrandHotel">Hilbert's Grand Hotel</a></small>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                        <img src="~/assets/images/logo-footer.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+        
+        <script src="~/js/jquery.min.js"></script>
+        <script src="~/js/jquery-ui.js"></script>
+        <!-- <script src="~/js/jquery.bootstrap.js"></script> -->
+        <script src="~/js/jquery.magnific-popup.js"></script>
+        <script src="~/js/jquery.owl.carousel.js"></script>
+        <script src="~/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

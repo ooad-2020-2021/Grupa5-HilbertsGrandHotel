@@ -1,0 +1,151 @@
+﻿@model HilbertsGrandHotel_KP.Models.Kontakt
+
+@{
+    ViewData["Title"] = "Kontakt";
+}
+
+<section class="page">
+
+    <!-- ===  Page header === -->
+
+    <div class="page-header" style="background-image:url(assets/images/workspace-1.webp)">
+        <div class="container">
+            <h2 class="title">Contact</h2>
+            <p>The place, our services & our team</p>
+        </div>
+    </div>
+
+    
+    <div class="contact">
+
+        <div class="container">
+
+            <!-- === Google map === -->
+            
+            <div class="map" id="map" style="height: 100px"></div>
+
+            <div class="row">
+
+                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+
+                    <!-- === Contact block === -->
+
+                    <div class="contact-block">
+
+                        <!-- === Contact banner === -->
+
+                        <div class="banner">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10 text-center">
+                                    <h2 class="title">Send an email</h2>
+                                    <p>
+                                        Please use this form if you have any questions about our hotel <br /> and we'll get back with you very soon.
+                                    </p>
+
+                                    <div class="contact-form-wrapper">
+
+                                        <a class="btn btn-clean open-form" data-text-open="Contact us via form" data-text-close="Close form">Contact us via form</a>
+
+                                        <div class="contact-form clearfix">
+                                            <form asp-action="Posalji" asp-controller="Kontakt" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" value="" class="form-control" placeholder="Your name" required="required" asp-for="imeIPrezime">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="email" value="" class="form-control" placeholder="Your email" required="required" asp-for="email">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+                                                            <input type="text" value="" class="form-control" placeholder="Subject" required="required" asp-for="predmet">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" placeholder="Your message" rows="10" asp-for="poruka"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 text-center">
+                                                        <input type="submit" class="btn btn-clean" value="Send message" asp-action="Posalji" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- === Contact info === -->
+
+                        <div class="contact-info">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <figure class="text-center">
+                                        <span class="icon icon-map-marker"></span>
+                                        <figcaption>
+                                            <strong>Where are we?</strong>
+                                            <span>Street 42<br />Sa 71000, B&H</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-sm-4">
+                                    <figure class="text-center">
+                                        <span class="icon icon-phone"></span>
+                                        <figcaption>
+                                            <strong>Call us</strong>
+                                            <span>
+                                                <strong>T</strong> +387 555 555<br />
+                                                <strong>F</strong> +387 555 556
+                                            </span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="col-sm-4">
+                                    <figure class="text-center">
+                                        <span class="icon icon-clock"></span>
+                                        <figcaption>
+                                            <strong>Working hours</strong>
+                                            <span>
+                                                <strong>Mon</strong> - Sat: 10 am - 6 pm <br />
+                                                <strong>Sun</strong> 12pm - 2 pm
+                                            </span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!--/contact-block-->
+                </div><!--col-sm-8-->
+            </div> <!--/row-->
+        </div> <!--/container-->
+    </div> <!--/contact-->
+</section>
+
+<!-- ========================  Subscribe ======================== -->
+
+<section class="subscribe">
+    <div class="container">
+        <div class="box">
+            <h2 class="title">Subscribe</h2>
+            <div class="text">
+                <p>& receive free premium gifts</p>
+            </div>
+            <div class="form-group">
+                <input type="text" value="" placeholder="Subscribe" class="form-control" />
+                <button class="btn btn-sm btn-main">Go</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<HilbertsGrandHotel_KP.Models.OdjavaRezervacije>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="odvojiOdHeadera" style="padding-left: 50px">
+    <h2>Odjava Rezervacije</h2>
+
+    <h3>Da li ste sigurni da zelite otkazati rezervaciju?</h3>
+
+    <p>podaci o o tkazivanju</p>
+    <div>
+
+        
+        <hr>
+        <dl class="dl-horizontal">
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden"/>
+            <input type="submit" value="Potvrdi" class="btn btn-default" /> |
+            <a asp-action="Index">Nazad</a>
+        </form>
+    </div>
+
+</div>

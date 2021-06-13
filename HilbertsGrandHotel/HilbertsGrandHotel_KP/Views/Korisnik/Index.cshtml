@@ -1,0 +1,313 @@
+﻿@model IEnumerable<HilbertsGrandHotel_KP.Models.Korisnik>
+@using Microsoft.AspNetCore.Identity
+@using HilbertsGrandHotel_KP.Data
+@inject SignInManager<MojRegisteredUser> SignInManager
+@inject UserManager<MojRegisteredUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    var korisnik = (MojRegisteredUser)ViewData["Korisnik"];
+    var rez = (Rezervacija)null;
+    var sveRez = (List<Rezervacija>)null;
+}
+
+<style>
+
+    body {
+        /*        margin-top: 20px;
+    */ color: #1a202c;
+        text-align: left;
+        background-color: #e2e8f0;
+    }
+
+    .main-body {
+        padding: 15px;
+    }
+
+    .card {
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1rem;
+    }
+
+    .gutters-sm {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+
+        .gutters-sm > .col, .gutters-sm > [class*=col-] {
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+    .mb-3, .my-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .bg-gray-300 {
+        background-color: #e2e8f0;
+    }
+
+    .h-100 {
+        height: 100% !important;
+    }
+
+    .shadow-none {
+        box-shadow: none !important;
+    }
+</style>
+<head>
+    <script type="text/javascript" src="~/js/bootstrap-filestyle.js"></script>
+</head>
+<div class="odvojiOdHeadera">
+    <div class="container">
+        <div class="main-body">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>John Doe</h4>
+                                    <p class="text-secondary mb-1">Full Stack Developer</p>
+                                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+
+                                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"> <button class="btn btn-primary">Manage Profile</button></a>
+
+                                    <a asp-area="" asp-controller="Kontakt" asp-action="Index">Contact Hotel</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+
+                        <div class="comment-add" style="padding: 20px;">
+
+                            <div class="comment-reply-message">
+                                <div class="h3 title">Leave a Reply </div>
+                                <p>Your email address will not be published.</p>
+                            </div>
+
+                            <form method="post" asp-action="Dodaj">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="" placeholder="Your Name" name="ime" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <textarea rows="10" class="form-control" placeholder="Your comment" required="required" name="tekst"></textarea>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="chechid1">
+                                    <label for="chechid1">Anonimna recenzija</label>
+                                </div>
+
+                                <div class="clearfix text-center">
+                                    <div class="form-group file btn btn-primary" style="position:relative; overflow: hidden;">
+                                        Upload slike
+                                        <input type="file" name="file" style="position: absolute; font-size: 20px; opacity: 0; right: 0; top: 0;">
+                                    </div>
+                                    <input type="submit" class="btn btn-main" value="Add comment" />
+                                </div>
+                            </form>
+
+                        </div><!--/comment-add-->
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Full Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @*@UserManager.FindByNameAsync(User.Identity.Name).Result.firstName @UserManager.FindByNameAsync(User.Identity.Name).Result.lastName*@
+                                    @korisnik.firstName  @korisnik.lastName
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @korisnik.Email
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @korisnik.PhoneNumber
+                                </div>
+                            </div>
+                            <hr>
+
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default" id="steps">
+                        <div class="panel-heading">Stanje sobe steps</div>
+                        <div class="panel-body">
+                            <h5>Stanje - 3 steps</h5>
+                            <div class="step-wrapper">
+                                <div class="stepper">
+                                    <ul class="row">
+                                        @if (rez != null)
+                                        {
+                                            @if (rez.soba != null && rez.soba.zauzetostSobe == true)
+                                            {
+                                                <li class="col-md-4 active">
+                                                    <span data-text="Rezervisana"></span>
+                                                </li>
+                                                @if (rez.soba.stanjeSobe.Equals(HilbertsGrandHotel_KP.Models.StanjeSobe.neociscena))
+                                                {
+                                                    <li class="col-md-4 active">
+                                                        <span data-text="Neociscena"></span>
+                                                    </li>
+                                                    <li class="col-md-4">
+                                                        <span data-text="Ociscena"></span>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="col-md-4 active">
+                                                        <span data-text="Neociscena"></span>
+                                                    </li>
+                                                    <li class="col-md-4 active">
+                                                        <span data-text="Ociscena"></span>
+                                                    </li>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <li class="col-md-4">
+                                                    <span data-text="Rezervisana"></span>
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li class="col-md-4">
+                                                <span data-text="Rezervisana"></span>
+                                            </li>
+                                            <li class="col-md-4">
+                                                <span data-text="Neociscena"></span>
+                                            </li>
+                                            <li class="col-md-4">
+                                                <span data-text="Ociscena"></span>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row gutters-sm">
+                        <div class="col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Rezervacije/</i> Historija Rezervacija</h6>
+                                    <ul class="list-group list-group-flush">
+                                        @if (sveRez == null || sveRez.Count == 0)
+                                        {
+                                            @Html.Raw("Niste ranije odsjedali");
+                                        }
+                                        else
+                                        {
+                                            @for (int i = 0; i < sveRez.Count; i++)
+                                            {
+                                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                    <h6 class="mb-0">Rezervacija broj @(i + 1)</h6>
+                                                    @*<a asp-controller="Sobe" asp-action="Index1" asp-route-id="@sveRez[i].soba.ID"><span class="text-secondary">Soba u kojoj ste odsjeli</span></a>*@
+                                                    <span class="text-secondary">@*Od @sveRez[i].soba.datumPrijave Do @sveRez[i].soba.datumOdjave*@</span>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Rezervacije/</i> Trenutna Rezervacija</h6>
+                                    @if (rez != null)
+                                    {
+                                        <ul class="list-group list-group-flush">
+
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Naziv sobe</h6>
+                                                <span class="text-secondary">@*Soba br. @rez.soba.ID*@</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Broj kreveta</h6>
+                                                <span class="text-secondary">@*@rez.soba.brojKreveta*@</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Cijena</h6>
+                                                <span class="text-secondary">@*@rez.soba.cijena*@</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                <h6 class="mb-0">Trajanje rezervacije</h6>
+                                                <span class="text-secondary">@*Od @rez.soba.datumPrijave Do @rez.soba.datumOdjave*@</span>
+                                            </li>
+
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw("Nemate trenutno rezervisanu sobu");
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

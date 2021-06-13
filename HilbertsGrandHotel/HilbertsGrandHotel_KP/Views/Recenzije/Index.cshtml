@@ -1,0 +1,99 @@
+﻿@model IEnumerable<HilbertsGrandHotel_KP.Models.Recenzija>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="odvojiOdHeadera">
+    <h2>Recenzije</h2>
+
+    <div class="comments">
+
+        <!-- === comment header === -->
+
+        <div class="comment-header">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+            <a href="#"><i class="fa fa-pinterest"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+
+        <div class="comment-wrapper">
+
+            <!-- === comment === -->
+            @foreach(var item in Model)
+            {
+            <div class="comment-block">
+                <div class="comment-user">
+                    <div><i class="fa fa-users fa-2x"></i></div>
+                    <div>
+                        <h5>
+                            @Html.DisplayFor(modelItem => item.ime)
+                        </h5>
+                            <a class="btn btn-sm btn-main pull-right" asp-controller="Recenzije" asp-action="DodajLike" asp-route-id="@item.id"><i class="fa fa-heart"></i> Like</a>
+                            @*<a class="btn btn-sm btn-main pull-right"><i class="fa fa-heart"></i> Like</a>*@
+                        <h5>
+                            <small>@Html.DisplayFor(modelItem => item.datum)</small>
+                            <small>@Html.DisplayFor(modelItem => item.likes) Likes</small>
+                        </h5>
+                    </div>
+                </div>
+
+                <!-- comment description -->
+
+                <div class="comment-desc">
+                    <p>
+                        @Html.DisplayFor(modelItem => item.tekst)
+                    </p>
+                </div>
+
+                <!-- comment reply -->
+                <!--/reply-->
+            </div>
+            }
+            
+
+            <!-- === comment === -->
+
+            
+        </div><!--/comment-wrapper-->
+
+        <!--<div class="comment-header">
+            <a href="#" class="btn btn-clean-dark">12 comments</a>
+        </div>--> <!--/comment-header-->
+        <!-- === add comment === -->
+
+        <div class="comment-add">
+
+            <div class="comment-reply-message">
+                <div class="h3 title">Leave a Reply </div>
+            </div>
+            <a class="btn btn-primary open-form text-center" data-text-open="Add review" data-text-close="Close form">Add Review</a>
+            <div class="contact-form-wrapper">
+                <div class="contact-form clearfix" style="display:none; margin-top: 20px;">
+                    <form asp-action="Dodaj" asp-controller="Recenzije" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="" placeholder="Your Name" name="ime" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" value="" />
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="10" class="form-control" placeholder="Your comment" required="required" name="tekst"></textarea>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="chechid1">
+                            <label for="chechid1">Anonimna recenzija</label>
+                        </div>
+
+                        <div class="clearfix text-center">
+                            <input type="submit" class="btn btn-main" value="Add comment" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div><!--/comment-add-->
+    </div> <!--/comments-->
+</div>

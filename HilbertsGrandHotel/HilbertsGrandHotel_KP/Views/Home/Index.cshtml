@@ -1,0 +1,813 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using HilbertsGrandHotel_KP.Controllers
+@using HilbertsGrandHotel_KP
+
+
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+-->
+
+
+
+
+<section class="frontpage-slider">
+    <div class="owl-slider owl-slider-header owl-slider-fullscreen">
+
+        <!-- === slide item === -->
+
+        <div class="item" style="background-image:url(assets/images/relax-1.webp)">
+            <div class="box text-center">
+                <div class="container">
+                    <div class="rating animated" data-animation="fadeInDown">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h2 class="title animated h1" data-animation="fadeInDown">
+                        Hilbert's<br /> <span>Grand Hotel</span>
+                    </h2>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        The best place to be.
+                    </div>
+                    <div class="desc animated" data-animation="fadeInUp">
+
+                    </div>
+                    <div class="animated" data-animation="fadeInUp">
+                        <a asp-area="" asp-controller="Kontakt" asp-action="Index" class="btn btn-clean">Contact Us!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === slide item === -->
+
+        <div class="item" style="background-image:url(assets/images/workspace-1.webp)">
+            <div class="box text-center">
+                <div class="container">
+                    <h2 class="title animated h1" data-animation="fadeInDown">
+                        The privacy and <br />
+                        individuality of a custom
+                    </h2>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        The Residences have their own dedicated private entrance as well <br />
+                        as an anonymous "celebrity" entrance, for ultimate privacy.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === slide item === -->
+
+        <div class="item" style="background-image:url(assets/images/relax-1.webp)">
+            <div class="box text-center">
+                <div class="container">
+                    <div class="rating animated" data-animation="fadeInDown">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h2 class="title animated h1" data-animation="fadeInDown">Fairmont managed!</h2>
+                    <div class="desc animated" data-animation="fadeInUp">The elegant Champagne Bar, the stylish Hilbert's Club.</div>
+                    <div class="desc animated" data-animation="fadeInUp">Guestrooms and luxurious suites</div>
+                   
+                </div>
+            </div>
+        </div>
+
+    </div> <!--/owl-slider-->
+</section>
+
+<!-- ======================== Booking ======================== -->
+
+<section class="booking booking-inner">
+
+    <div class="section-header hidden">
+        <div class="container">
+            <h2 class="title">Booking & reservations</h2>
+        </div>
+    </div>
+
+    <div class="booking-wrapper">
+
+        <div class="container">
+            <div class="row">
+
+                <!--=== date arrival ===-->
+
+                <div class="col-xs-4 col-sm-3">
+                    <div class="date" id="dateArrival" data-text="Arrival">
+                        <input class="datepicker" readonly="readonly" />
+                        <div class="date-value"></div>
+                    </div>
+                </div>
+
+                <!--=== date departure ===-->
+
+                <div class="col-xs-4 col-sm-3">
+                    <div class="date" id="dateDeparture" data-text="Departure">
+                        <input class="datepicker" readonly="readonly" />
+                        <div class="date-value"></div>
+                    </div>
+                </div>
+
+                <!--=== guests ===-->
+
+                <div class="col-xs-4 col-sm-2">
+
+                    <div class="guests" data-text="Guests">
+                        <div class="result">
+                            <input class="qty-result" type="text" value="2" id="qty-result" readonly="readonly" />
+                            <div class="qty-result-text date-value" id="qty-result-text"></div>
+                        </div>
+                        <!--=== guests list ===-->
+                        <ul class="guest-list">
+
+                            <li class="header">
+                                Please choose number of guests <span class="qty-apply"><i class="icon icon-cross"></i></span>
+                            </li>
+
+                            <!--=== adults ===-->
+
+                            <li class="clearfix">
+
+                                <!--=== Adults value ===-->
+
+                                <div>
+                                    <input class="qty-amount" value="2" type="text" id="ticket-adult" data-value="2" readonly="readonly" />
+                                </div>
+
+                                <div>
+                                    <span>Adults <small>16+ years</small></span>
+                                </div>
+
+                                <!--=== Add/remove quantity buttons ===-->
+
+                                <div>
+                                    <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-adult" />
+                                    <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-adult" />
+                                </div>
+
+                            </li>
+
+                            <!--=== chilrens ===-->
+
+                            <li class="clearfix">
+
+                                <!--=== Adults value ===-->
+
+                                <div>
+                                    <input class="qty-amount" value="0" type="text" id="ticket-children" data-value="0" readonly="readonly" />
+                                </div>
+
+                                <!--=== Label ===-->
+
+                                <div>
+                                    <span>Children <small>2-11 years</small></span>
+                                </div>
+
+
+                                <!--=== Add/remove quantity buttons ===-->
+
+                                <div>
+                                    <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-children" />
+                                    <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-children" />
+                                </div>
+
+                            </li>
+
+                            <!--=== Infants ===-->
+
+                            <li class="clearfix">
+
+                                <!--=== Adults value ===-->
+
+                                <div>
+                                    <input class="qty-amount" value="0" type="text" id="ticket-infants" data-value="0" readonly="readonly" />
+                                </div>
+
+                                <!--=== Label ===-->
+
+                                <div>
+                                    <span>Infants <small>Under 2 years</small></span>
+                                </div>
+
+                                <!--=== Add/remove quantity buttons ===-->
+
+                                <div>
+                                    <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-infants" />
+                                    <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-infants" />
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!--=== button ===-->
+
+
+                <div class="col-xs-12 col-sm-4">
+
+                    <a class="btn btn-clean"
+                       asp-area="" asp-controller="Sobe" asp-action="Index">
+                        Book now
+                        <small>Best Prices Guaranteed</small>
+                    </a>
+                </div>
+
+            </div> <!--/row-->
+        </div><!--/booking-wrapper-->
+    </div> <!--/container-->
+</section>
+
+<!-- ========================  Rooms ======================== -->
+
+<section class="rooms rooms-widget">
+
+    <!-- === rooms header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Rooms accommodation <a href="#" class="btn btn-sm btn-clean-dark">View all</a></h2>
+            <p>Designed as a privileged almost private place where you'll feel right at home</p>
+        </div>
+    </div>
+
+    <!-- === rooms content === -->
+
+    <div class="container">
+
+        <div class="owl-rooms owl-theme">
+
+            <!-- === rooms item === -->
+
+            <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="assets/images/room-6.webp" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="#">Club Room</a></h3>
+                            <p>Single room</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="#" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 98,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- === rooms item === -->
+
+            <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="assets/images/room-7.webp" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="room-overview.html">Classic Room</a></h3>
+                            <p>Double room</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="#" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 129,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- === rooms item === -->
+
+            <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="assets/images/room-8.webp" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="#">Superior Room</a></h3>
+                            <p>Queen size bed</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="#" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 159,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- === rooms item === -->
+
+            <div class="item">
+                <article>
+                    <div class="image">
+                        <img src="assets/images/room-9.webp" alt="" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3 class="title"><a href="#">Family Suite</a></h3>
+                            <p>Family room</p>
+                        </div>
+                        <div class="book">
+                            <div>
+                                <a href="#" class="btn btn-main">Book now</a>
+                            </div>
+                            <div>
+                                <span class="price h4">$ 199,00</span>
+                                <span>per night</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div><!--/owl-rooms-->
+
+    </div> <!--/container-->
+
+</section>
+
+<!-- ========================  Stretcher widget ======================== -->
+
+<section class="stretcher-wrapper">
+
+    <!-- === stretcher header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Resort facilities <a href="#" class="btn btn-sm btn-clean-dark">Explore more</a></h2>
+            <p>
+                With the best luxury spa, salon and fitness experiences
+            </p>
+        </div>
+    </div>
+
+    <!-- === stretcher === -->
+
+    <ul class="stretcher">
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/spa-1.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Spa center</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Spa center</h4>
+                <figcaption>Unparalleled devotion to luxury</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/gym-2.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Gym</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Gym</h4>
+                <figcaption>Care about results</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/gym-3.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Fitness</span>
+                </div>
+            </div>
+            <figure>
+                <h4>Fitness</h4>
+                <figcaption>Your daily activities</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(assets/images/salon-2.webp);">
+
+
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Beauty salon</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Beauty salon</h4>
+                <figcaption>Hair salons and spas</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item more === -->
+
+        <li class="stretcher-item more">
+            <div class="more-icon">
+                <span data-title-show="Show more" data-title-hide="+"></span>
+            </div>
+            <a href="#">Anchor link</a>
+        </li>
+
+    </ul>
+</section>
+
+<!-- ========================  Cards ======================== -->
+
+<section class="cards">
+
+    <!-- === cards header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Near by <a href="#" class="btn btn-sm btn-clean-dark">View all</a></h2>
+            <p>Here's a selection of ionic sites related to art, fashion and design.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- === item === -->
+
+            <div class="col-xs-12 col-md-8">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/museum-1.webp)">
+                        <img src="assets/images/museum-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean" onclick="">Museums</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/nightlife-1.webp)">
+                        <img src="assets/images/nightlife-2.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Nightlife</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/food-1.webp)">
+                        <img src="assets/images/food-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Food & drink</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/shopping-1.webp)">
+                        <img src="assets/images/shopping-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Shopping</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="background-image:url(assets/images/city-1.webp)">
+                        <img src="assets/images/city-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">The City</a>
+                </figure>
+            </div>
+
+        </div> <!--/row-->
+
+    </div> <!--/container-->
+</section>
+
+
+<!-- ======================== Image blocks ======================== -->
+
+<section class="image-blocks image-blocks-header">
+
+    <div class="section-header" style="background-image:url(assets/images/header-1.webp)">
+        <div class="container">
+            <h2 class="title">Apartment residences <a href="#" class="btn btn-sm btn-clean">View all</a></h2>
+            <p>At home while on the road. </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!--item block -->
+        <div class="blocks blocks-left">
+            <div class="item">
+                <div class="text">
+
+                    <!-- === room info === -->
+
+                    <h2 class="title">Presidential <br />Suite</h2>
+                    <p>
+                        Newly refurnished luxury accommodation with finest quality linen & quality decor.
+                        Air Conditioning Electric Blankets, Ironing Boards, Mini Bar, Flat Screen & Free Inhouse Movies, WiFi
+                        and Housekeeping by request.
+                    </p>
+
+                    <!-- === room facilities === -->
+
+                    <div class="room-facilities">
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-guest"></i> 4 Persons</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-roomservice"></i> Room service</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-king-bed"></i> Kingsize bed</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-kitchen"></i> All inclusive</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-compas"></i> 460 sqft room</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-tv"></i> TV</figcaption>
+                        </figure>
+
+                    </div>
+
+                    <!-- === booking === -->
+
+                    <div class="book">
+                        <div>
+                            <a href="#" class="btn btn-danger btn-lg">Book</a>
+                        </div>
+                        <div>
+                            <span class="price h2">$ 129,00</span>
+                            <span>per night</span>
+                        </div>
+                    </div> <!--/booking-->
+
+                </div><!--/text-->
+            </div> <!--/item-->
+
+            <div class="image" style="background-image:url(assets/images/presidential_room-1.webp)">
+                <img src="assets/images/apartment-1.webp" alt="" />
+            </div>
+        </div>
+
+        <!--item block -->
+        <div class="blocks blocks-right">
+            <div class="item">
+                <div class="text">
+
+                    <!-- === room info === -->
+
+                    <h2 class="title">Luxury <br />appartment</h2>
+                    <p>
+                        The highest level of living with luxury. Residences are distinctively designed and exquisitely appointed,
+                        creating ideal places where memories are made and experiences are genuine.
+                    </p>
+
+                    <!-- === room facilities === -->
+
+                    <div class="room-facilities">
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-guest"></i> 4 Persons</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-king-bed"></i> Kingsize bed</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-roomservice"></i> Room service</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-kitchen"></i> All inclusive</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-compas"></i> 460 sqft room</figcaption>
+                        </figure>
+
+                        <!--=== icon ===-->
+
+                        <figure>
+                            <figcaption><i class="hotelicon hotelicon-tv"></i> TV</figcaption>
+                        </figure>
+
+                    </div>
+
+                    <!-- === booking === -->
+
+                    <div class="book">
+                        <div>
+                            <a href="#" class="btn btn-danger btn-lg">Book</a>
+                        </div>
+                        <div>
+                            <span class="price h2">$ 229,00</span>
+                            <span>per night</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="image" style="background-image:url(assets/images/lux_room-1.webp)">
+                <img src="assets/images/apartment-2.webp" alt="" />
+            </div>
+        </div>
+
+    </div> <!--/container-->
+</section>
+
+<!-- ======================== Quotes ======================== -->
+
+<section class="quotes quotes-slider" style="background-image:url(assets/images/header-1.webp)">
+    <div class="container">
+
+        <!-- === Quotes header === -->
+
+        <div class="section-header">
+            <h2 class="title">Testimonials</h2>
+            <p>What other think about us</p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2">
+                <div class="quote-carousel">
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>Harun Alagić</h4>
+                            <p>Ipsum dolore eros dolore <br />dolor dolores sit iriure</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>Peugeot 3008</h4>
+                            <p>Ipsum dolore eros dolore <br />dolor dolores sit iriure</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>Nedim Badžak</h4>
+                            <p>Ipsum dolore eros dolore <br />dolor dolores sit iriure</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === quoute item === -->
+
+                    <div class="quote">
+                        <div class="text">
+                            <h4>Emil Fejzagić</h4>
+                            <p>Ipsum dolore eros dolore <br />dolor dolores sit iriure</p>
+                        </div>
+                        <div class="more">
+                            <div class="rating">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/row-->
+    </div> <!--/container-->
+</section>
+
+<!-- ========================  Subscribe ======================== -->
+
+<section class="subscribe">
+    <div class="container">
+        <div class="box">
+            <h2 class="title">Subscribe</h2>
+            <div class="text">
+                <p>& receive free premium gifts</p>
+            </div>
+            <div class="form-group">
+                <input type="text" value="" placeholder="Subscribe" class="form-control" />
+                <button class="btn btn-sm btn-main">Go</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+

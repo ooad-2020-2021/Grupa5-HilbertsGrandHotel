@@ -1,0 +1,291 @@
+﻿@model IEnumerable<HilbertsGrandHotel_KP.Models.Soba>
+@using Microsoft.AspNetCore.Identity
+@using HilbertsGrandHotel_KP.Data
+@inject SignInManager<MojRegisteredUser> SignInManager
+@inject UserManager<MojRegisteredUser> UserManager
+
+@{
+    ViewData["Title"] = "Sobe";
+    var sveSobe = (List<HilbertsGrandHotel_KP.Models.Soba>)ViewData["sveSobe"];
+}
+
+
+<section class="page">
+
+    <!-- ========================  Page header ======================== -->
+
+    <div class="page-header" style="background-image:url(../assets/images/workspace-1.webp)">
+        <div class="container">
+            <h2 class="title">Rooms & Suites</h2>
+            <p>At home while on the road. </p>
+        </div>
+    </div>
+
+    <!-- === rooms content === -->
+
+    <div class="rooms rooms-category">
+        <div class="container">
+
+            <div class="row">
+
+                <!-- === rooms item === -->
+                <!--metoda za sve sobe-->
+                @for (int i = 0; i < sveSobe.Count; i++)
+                {
+                    @if (sveSobe[i].zauzetostSobe == false)
+                    {
+                        <div class="col-sm-6 col-md-6">
+                            <div class="item">
+                                <article>
+                                    <div class="image">
+                                        <img src="../assets/images/workspace-1.webp" alt="" />
+                                    </div>
+                                    <div class="details">
+                                        <div class="text">
+                                            <h2 class="title"><a href="#">Presidential Suite</a></h2>
+                                            <p>Family room</p>
+                                        </div>
+                                        <div class="book">
+                                            <div>
+                                                <a asp-controller="Sobe" asp-action="Details" asp-route-id="@sveSobe[i].ID" class="btn btn-main">Book now</a>
+                                            </div>
+                                            <div>
+                                                <span class="price h2">@sveSobe[i].cijena.ToString() KM</span>
+                                                <span>per night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-6 col-md-6">
+                            <div class="item">
+                                <article>
+                                    <div class="image">
+                                        <img src="../assets/images/workspace-1.webp" alt="" />
+                                    </div>
+                                    <div class="details">
+                                        <div class="text">
+                                            <h2 class="title"><a href="#">Presidential Suite</a></h2>
+                                            <p>Family room</p>
+                                        </div>
+                                        <div class="book">
+                                            <div>
+                                                <a  class="btn btn-main">Already Booked!</a>
+                                            </div>
+                                            <div>
+                                                <span class="price h2">@sveSobe[i].cijena.ToString() KM</span>
+                                                <span>per night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div> <!--/container-->
+    </div>
+</section>
+
+<!-- ========================  Stretcher widget ======================== -->
+
+<section class="stretcher-wrapper">
+
+    <!-- === stretcher header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Resort facilities <a href="facility.html" class="btn btn-sm btn-clean-dark">Explore more</a></h2>
+            <p>
+                With the best luxury spa, salon and fitness experiences
+            </p>
+        </div>
+    </div>
+
+    <!-- === stretcher === -->
+
+    <ul class="stretcher">
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(../assets/images/spa-1.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Spa center</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Spa center</h4>
+                <figcaption>Unparalleled devotion to luxury</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(../assets/images/gym-2.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Gym</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Gym</h4>
+                <figcaption>Care about results</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(../assets/images/gym-3.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Fitness</span>
+                </div>
+            </div>
+            <figure>
+                <h4>Fitness</h4>
+                <figcaption>Your daily activities</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="background-image:url(../assets/images/salon-1.webp);">
+
+
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Beauty salon</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Beauty salon</h4>
+                <figcaption>Hair salons and spas</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item more === -->
+
+        <li class="stretcher-item more">
+            <div class="more-icon">
+                <span data-title-show="Show more" data-title-hide="+"></span>
+            </div>
+            <a href="facility.html">Anchor link</a>
+        </li>
+
+    </ul>
+</section>
+
+<!-- ========================  Cards ======================== -->
+
+<section class="cards">
+
+    <!-- === cards header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Near by <a href="#" class="btn btn-sm btn-clean-dark">View all</a></h2>
+            <p>Here's a selection of ionic sites related to art, fashion and design.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- === item === -->
+
+            <div class="col-xs-12 col-md-8">
+                <figure>
+                    <figcaption style="background-image:url(../assets/images/museum-1.webp)">
+                        <img src="../assets/images/museum-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean" onclick="">Museums</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../assets/images/nightlife-1.webp)">
+                        <img src="../assets/images/nightlife-2.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Nightlife</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../assets/images/food-1.webp)">
+                        <img src="../assets/images/food-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Food & drink</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../assets/images/shopping-1.webp)">
+                        <img src="../assets/images/shopping-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Shopping</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../assets/images/city-1.webp)">
+                        <img src="../assets/images/city-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">The City</a>
+                </figure>
+            </div>
+
+        </div> <!--/row-->
+
+    </div> <!--/container-->
+</section>
+
+<!-- ========================  Subscribe ======================== -->
+
+<section class="subscribe">
+    <div class="container">
+        <div class="box">
+            <h2 class="title">Subscribe</h2>
+            <div class="text">
+                <p>& receive free premium gifts</p>
+            </div>
+            <div class="form-group">
+                <input type="text" value="" placeholder="Subscribe" class="form-control" />
+                <button class="btn btn-sm btn-main">Go</button>
+            </div>
+        </div>
+    </div>
+</section>
+

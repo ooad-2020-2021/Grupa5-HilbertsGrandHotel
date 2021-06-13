@@ -1,0 +1,36 @@
+﻿@model HilbertsGrandHotel_KP.Models.Uplata
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Uplata</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vrstaUplate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vrstaUplate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.datum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.datum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.iznos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.iznos)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

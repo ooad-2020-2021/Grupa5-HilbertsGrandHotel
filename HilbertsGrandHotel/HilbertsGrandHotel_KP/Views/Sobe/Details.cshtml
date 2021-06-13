@@ -1,0 +1,496 @@
+﻿@model HilbertsGrandHotel_KP.Models.Soba
+
+@using Microsoft.AspNetCore.Identity
+@using HilbertsGrandHotel_KP.Data
+@inject SignInManager<MojRegisteredUser> SignInManager
+@inject UserManager<MojRegisteredUser> UserManager
+
+@{
+    ViewData["Title"] = "Sobe";
+    var soba = (HilbertsGrandHotel_KP.Models.Soba)ViewData["soba"];
+
+}
+
+<section class="page">
+
+    <!-- ===  Page header === -->
+
+    <div class="page-header" style="        background-image: url(../../assets/images/workspace-1.webp)">
+        <div class="container">
+            <h2 class="title">Luxury appartment</h2>
+            <p>Available from @soba.cijena KM per night</p>
+        </div>
+    </div>
+
+    <div class="room">
+
+        <!-- === Room gallery === -->
+
+        <div class="room-gallery">
+            <div class="container">
+                <div class="owl-slider owl-theme owl-slider-gallery">
+
+                    <!-- === slide item === -->
+
+                    <div class="item" style="background-image:url(../../assets/images/room-8.webp)">
+                        <img src="../../assets/images/room-6.webp" alt="" />
+                    </div>
+
+                    <!-- === slide item === -->
+
+                    <div class="item" style="background-image:url(../../assets/images/room-6.webp)">
+                        <img src="../../assets/images/room-7.webp" alt="" />
+                    </div>
+
+
+                    <!-- === slide item === -->
+
+                    <div class="item" style="        background-image: url(../../assets/images/room-9.webp)">
+                        <img src="../../assets/images/room-8.webp" alt="" />
+                    </div>
+
+
+                </div> <!--/owl-slider-->
+
+            </div>
+        </div> <!--/room-gallery-->
+        <!-- === Booking === -->
+
+        <div class="booking booking-inner">
+
+            <div class="container">
+
+                <div class="booking-wrapper">
+                    <div class="row">
+
+
+
+                        <div class="col-xs-12 col-sm-4">
+                            <a class="btn btn-clean"  asp-controller="Rezervacija" asp-action="Index" asp-route-id="@soba.ID">
+                                Book now
+                                <small>Best Prices Guaranteed</small>
+                            </a>
+                        </div>
+
+                    </div> <!--/row-->
+                </div><!--/booking-wrapper-->
+            </div> <!--/container-->
+        </div> <!--/booking-->
+        <!-- ===  Room overview === -->
+
+        <div class="room-overview">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                        <!-- === Room aminities === -->
+
+                        <div class="room-block room-aminities">
+
+                            <h2 class="title">Room aminities</h2>
+
+                            <div class="row">
+
+                                <!--=== item ===-->
+
+                                <div class="col-xs-6 col-sm-2">
+                                    <figure>
+                                        <figcaption>
+                                            <span class="hotelicon hotelicon-air-condition"></span>
+                                            <p>Aircondition</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                                <!--=== item ===-->
+
+                                <div class="col-xs-6 col-sm-2">
+                                    <figure>
+                                        <figcaption>
+                                            <span class="hotelicon hotelicon-king-bed"></span>
+                                            <p>1 Kingsize bed</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                                <!--=== item ===-->
+
+                                <div class="col-xs-6 col-sm-2">
+                                    <figure>
+                                        <figcaption>
+                                            <span class="hotelicon hotelicon-guest"></span>
+                                            <p>@soba.brojGostiju People</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                                <!--=== item ===-->
+
+                                <div class="col-xs-6 col-sm-2">
+                                    <figure>
+                                        <figcaption>
+                                            <span class="hotelicon hotelicon-wifi"></span>
+                                            <p>Internet</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                                <!--=== item ===-->
+
+                                <div class="col-xs-6 col-sm-2">
+                                    <figure>
+                                        <figcaption>
+                                            <span class="hotelicon hotelicon-washer"></span>
+                                            <p>Washer</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                                <!--=== item ===-->
+
+                                <div class="col-xs-6 col-sm-2">
+                                    <figure>
+                                        <figcaption>
+                                            <span class="hotelicon hotelicon-roomservice"></span>
+                                            <p>Room service</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- === Room block === -->
+
+                        <div class="room-block">
+                            <h2 class="title">Room overview</h2>
+                            <p>
+                                The Superior Rooms pay tribute to fashion and craftsmanship. The rooms are approximately 19m2 with views of Rue d'Alger and Jardin des Tuileries.
+                                The selection and pairing of materials has been carefully chosen to give you a cool experience. The super soft bed topper is simply extravagant!
+                                Every room is different but the colour palette uses unique and expertly matched hues.
+                                An openwork brass screen separates the bathroom from the bedroom. This original feature helps make every room your very own cosy and peaceful haven.
+                                Bathrobes, slippers and SOTHYS toiletries are provided in the bathroom to pamper you.
+                            </p>
+                        </div>
+
+                        <!-- === Room block === -->
+
+                        <div class="room-block">
+
+                            <h2 class="title">House rules</h2>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Check-In</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>14:00 - 22:00</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Check-out</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>14:00 - 22:00</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Luggage storage</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>14:00 - 22:00</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Cancellation/prepayment</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>
+                                            Cancellation and prepayment policies vary according to room type. Please enter the dates of your stay and check the conditions of your required room.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Children and extra beds</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>All children are welcome.</p>
+                                        <p>One child under 6 years is charged EUR 50 per night when using existing beds.</p>
+                                        <p>There is no capacity for extra beds in the room.</p>
+                                        <p>Supplements are not calculated automatically in the total costs and will have to be paid for separately during your stay.                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Pets</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>Pets are not allowed.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === box === -->
+
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Additional info</strong></p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p>Please note that the restaurant is closed each Sunday.</p>
+                                        <p>The restaurant will also be closed during Christmas (25-26 December).</p>
+                                        <p>Please note that parking spaces cannot be reserved or guaranteed.</p>
+                                        <p>
+                                            For a group booking more than 5 rooms up to 4 weeks prior to arrival cancellation is
+                                            100% free of charge, within 2 until 4 weeks 50% free of charge, and within 2 weeks the
+                                            property will charge you in full. Please note that Ozo hotel always charges city tax
+                                            prior to your arrival with the non-refundable rate or group booking.
+                                        </p>
+                                        <p>
+                                            Please note that the credit card that is used for the booking needs to be present at check-in.
+                                            When this credit card is not available please bring a photocopy of the credit card with
+                                            authorization of the owner.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!--/col-sm-10-->
+                </div> <!--/row-->
+            </div> <!--/container-->
+        </div> <!--/room-overview-->
+    </div>
+
+</section>
+
+
+<section class="stretcher-wrapper">
+
+    <!-- === stretcher header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Resort facilities <a href="#" class="btn btn-sm btn-clean-dark">Explore more</a></h2>
+            <p>
+                With the best luxury spa, salon and fitness experiences
+            </p>
+        </div>
+    </div>
+
+    <!-- === stretcher === -->
+
+    <ul class="stretcher">
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="        background-image: url(../../assets/images/spa-1.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Spa center</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Spa center</h4>
+                <figcaption>Unparalleled devotion to luxury</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="        background-image: url(../../assets/images/gym-2.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Gym</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Gym</h4>
+                <figcaption>Care about results</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="        background-image: url(../../assets/images/gym-3.webp);">
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Fitness</span>
+                </div>
+            </div>
+            <figure>
+                <h4>Fitness</h4>
+                <figcaption>Your daily activities</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item === -->
+
+        <li class="stretcher-item" style="        background-image: url(../../assets/images/salon-2.webp);">
+
+
+            <!--logo-item-->
+            <div class="stretcher-logo">
+                <div class="text">
+                    <span class="text-intro h4">Beauty salon</span>
+                </div>
+            </div>
+            <!--main text-->
+            <figure>
+                <h4>Beauty salon</h4>
+                <figcaption>Hair salons and spas</figcaption>
+            </figure>
+            <!--anchor-->
+            <a href="#">Anchor link</a>
+        </li>
+
+        <!-- === stretcher item more === -->
+
+        <li class="stretcher-item more">
+            <div class="more-icon">
+                <span data-title-show="Show more" data-title-hide="+"></span>
+            </div>
+            <a href="#">Anchor link</a>
+        </li>
+
+    </ul>
+</section>
+
+<!-- ========================  Cards ======================== -->
+
+<section class="cards">
+
+    <!-- === cards header === -->
+
+    <div class="section-header">
+        <div class="container">
+            <h2 class="title">Near by <a href="#" class="btn btn-sm btn-clean-dark">View all</a></h2>
+            <p>Here's a selection of ionic sites related to art, fashion and design.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- === item === -->
+
+            <div class="col-xs-12 col-md-8">
+                <figure>
+                    <figcaption style="        background-image: url(../../assets/images/museum-1.webp)">
+                        <img src="../../assets/images/museum-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean" onclick="">Museums</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../../assets/images/nightlife-1.webp)">
+                        <img src="../../assets/images/nightlife-2.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Nightlife</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../../assets/images/food-1.webp)">
+                        <img src="../../assets/images/food-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Food & drink</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../../assets/images/shopping-1.webp)">
+                        <img src="../../assets/images/shopping-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">Shopping</a>
+                </figure>
+            </div>
+
+            <!-- === item === -->
+
+            <div class="col-xs-6 col-md-4">
+                <figure>
+                    <figcaption style="        background-image: url(../../assets/images/city-1.webp)">
+                        <img src="../../assets/images/city-1.webp" alt="" />
+                    </figcaption>
+                    <a href="#" class="btn btn-clean">The City</a>
+                </figure>
+            </div>
+
+        </div> <!--/row-->
+
+    </div> <!--/container-->
+</section>
+
+<!-- ========================  Subscribe ======================== -->
+
+<section class="subscribe">
+    <div class="container">
+        <div class="box">
+            <h2 class="title">Subscribe</h2>
+            <div class="text">
+                <p>& receive free premium gifts</p>
+            </div>
+            <div class="form-group">
+                <input type="text" value="" placeholder="Subscribe" class="form-control" />
+                <button class="btn btn-sm btn-main">Go</button>
+            </div>
+        </div>
+    </div>
+</section>
