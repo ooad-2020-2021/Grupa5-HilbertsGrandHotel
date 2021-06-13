@@ -11,6 +11,8 @@ Naša aplikacija nudi gostima pregled svih vrsta dostupnog smještaja i dodatnih
 
 Riječ je o pristupačnoj, funkcionalnoj i jedinstvenoj aplikacija "Hilbert's Grand Hotel" koja pruža klijentima sve potrebne pogodnosti, jednostavan pristup i uvid u sve pogodnosti hotela. Ako želite vidjeti vašu buduću hotelsku sobu, unaprijed osigurati mjesto za vaše auto u hladu, rezervisati savršeno mjesto za team building ili se jednostavno opustiti sa porodicom u mnogim dodatnim aktivnostima koje naš hotel nudi, onda smo mi savršeno mjesto za vas. S obzirom da smo mi zaduženi da vas opustimo, ne treba da brinete o plaćanju, jer prihvatamo sve vidove plaćanja, od gotovine do kartice. Za vaš ugođaj će biti zadužen tim iskusnih profesionalaca kojima je jedini zadatak da vaš boravak učine savršenim.
 
+## Link za aplikaciju:
+https://hilbertsgrandhotelkp20210613231535.azurewebsites.net/
 ## Funkcionalnosti
 ### Korisnik
 - Login
